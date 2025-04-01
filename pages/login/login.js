@@ -53,9 +53,11 @@ Page({
 
   handleLogin() {
     const { username, password } = this.data;
-    
+    wx.switchTab({
+      url: '/pages/index/index',
+    })
     console.log(1111111, username, password);
-
+    return;
     if (!username || !password) {
       wx.showToast({
         title: '请填写完整信息',
