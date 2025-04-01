@@ -1,0 +1,46 @@
+<view class="container">
+  <view class="register-header">
+    <view class="title">用户注册</view>
+    <view class="subtitle">请填写以下信息完成注册</view>
+  </view>
+
+  <view class="register-form">
+    <t-cell-group>
+      <t-input
+        label="姓名"
+        placeholder="请输入姓名"
+        value="{{name}}"
+        bind:change="onNameChange"
+      />
+      <t-input
+        label="账号"
+        placeholder="请输入账号"
+        value="{{username}}"
+        bind:change="onUsernameChange"
+      />
+      <t-input
+        label="密码"
+        placeholder="请输入密码"
+        value="{{password}}"
+        type="password"
+        bind:change="onPasswordChange"
+      />
+      <t-input
+        label="确认密码"
+        placeholder="请再次输入密码"
+        value="{{confirmPassword}}"
+        type="password"
+        bind:change="onConfirmPasswordChange"
+      />
+    </t-cell-group>
+
+    <view class="button-group">
+      <t-button theme="primary" block size="large" bind:tap="handleRegister">
+        注册
+      </t-button>
+      <t-button variant="text" block bind:tap="goToLogin">
+        已有账号？返回登录
+      </t-button>
+    </view>
+  </view>
+</view> 

@@ -1,0 +1,15 @@
+<t-tab-bar value="{{active}}" bindchange="onChange" theme="tag" split="{{false}}">
+  <t-tab-bar-item value="index" icon="home">首页</t-tab-bar-item>
+  <t-tab-bar-item value="notice" icon="notification">社区公告</t-tab-bar-item>
+  <t-tab-bar-item value="alarm" icon="error">一键报警</t-tab-bar-item>
+</t-tab-bar>
+
+<t-dialog
+  visible="{{showDialog}}"
+  title="提示"
+  content="您要一键报警吗？"
+  confirm-btn="确定"
+  cancel-btn="取消"
+  bind:confirm="handleConfirm"
+  bind:cancel="handleCancel"
+/>

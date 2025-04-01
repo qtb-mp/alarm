@@ -1,0 +1,44 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- 顶部警察背景图区域 -->
+  <view class="header">
+    <image class="police-bg" src="/assets/images/banner@2x.png" mode="aspectFill" />
+  </view>
+
+  <!-- 四个功能按钮区域 -->
+  <view class="grid-container">
+    <view class="grid-item">
+      <t-icon name="chat-bubble" slot="image" size="48rpx" color="#19b2b2" />
+      <view>我要投诉</view>
+    </view>
+    <view class="grid-item">
+      <t-icon name="usergroup" slot="image" size="48rpx" color="#19b2b2" />
+      <view>警务平台</view>
+    </view>
+    <view class="grid-item">
+      <t-icon name="notification-error" slot="image" size="48rpx" color="#19b2b2" />
+      <view>一键报警</view>
+    </view>
+    <view class="grid-item">
+      <t-icon name="task" slot="image" size="48rpx" color="#19b2b2" />
+      <view>我的投诉</view>
+    </view>
+  </view>
+
+  <!-- 处理流程步骤条 -->
+  <view class="process-container">
+    <t-steps current="{{0}}" layout="horizontal">
+      <t-step-item title="填写建议" />
+      <t-step-item title="选择标签" />
+      <t-step-item title="警务查看" />
+      <t-step-item title="帮您处理" />
+    </t-steps>
+  </view>
+
+  <!-- 底部投诉建议按钮 -->
+  <view class="bottom-button">
+    <t-button theme="primary" block size="large" bind:tap="onComplaint">
+      投诉建议
+    </t-button>
+  </view>
+</view>

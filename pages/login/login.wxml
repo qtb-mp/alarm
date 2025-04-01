@@ -1,0 +1,34 @@
+<!--pages/login/login.wxml-->
+<view class="container">
+  <view class="login-header">
+    <view class="title">社区安全助手</view>
+  </view>
+
+  <view class="login-form">
+    <t-cell-group>
+      <t-input
+        label="用户名"
+        placeholder="请输入用户名"
+        value="{{username}}"
+        bind:change="onUsernameChange"
+      />
+      <t-input
+        label="密码"
+        placeholder="请输入密码"
+        t-class-label="custom-label"
+        value="{{password}}"
+        type="password"
+        bind:change="onPasswordChange"
+      />
+    </t-cell-group>
+
+    <view class="button-group">
+      <t-button theme="primary" block size="large" bind:tap="handleLogin">
+        登录
+      </t-button>
+      <t-button variant="text" block bind:tap="goToRegister">
+        还没有账号？立即注册
+      </t-button>
+    </view>
+  </view>
+</view>
