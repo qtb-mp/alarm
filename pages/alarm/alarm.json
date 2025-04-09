@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "社区公告",
+  "navigationBarTitleText": "我的报警",
   "component": true,
   "usingComponents": {
     "t-cell": "tdesign-miniprogram/cell/cell",

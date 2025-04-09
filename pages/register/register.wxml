@@ -18,20 +18,6 @@
         value="{{username}}"
         bind:change="onUsernameChange"
       />
-      <t-input
-        label="密码"
-        placeholder="请输入密码"
-        value="{{password}}"
-        type="password"
-        bind:change="onPasswordChange"
-      />
-      <t-input
-        label="确认密码"
-        placeholder="请再次输入密码"
-        value="{{confirmPassword}}"
-        type="password"
-        bind:change="onConfirmPasswordChange"
-      />
     </t-cell-group>
 
     <view class="button-group">

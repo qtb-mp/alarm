@@ -11,11 +11,11 @@
       <t-icon name="chat-bubble" slot="image" size="48rpx" color="#19b2b2" />
       <view>我要投诉</view>
     </view>
-    <view class="grid-item">
+    <view class="grid-item" bind:tap="gotoNotice">
       <t-icon name="usergroup" slot="image" size="48rpx" color="#19b2b2" />
       <view>警务平台</view>
     </view>
-    <view class="grid-item">
+    <view class="grid-item" bind:tap="gotoAlarm">
       <t-icon name="notification-error" slot="image" size="48rpx" color="#19b2b2" />
       <view>一键报警</view>
     </view>

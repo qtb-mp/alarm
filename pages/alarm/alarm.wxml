@@ -17,9 +17,9 @@
         bindtap="onNoticeClick"
         data-notice="{{item}}"
       >
-        <view class="notice-title">{{item.Title}}</view>
-        <view class="notice-content">{{item.Content}}</view>
-        <view class="notice-time">{{item.CreateTime}}</view>
+        <view class="notice-title">报警成功</view>
+        <view class="notice-content">报警坐标: {{item.LocationLat}}, {{item.LocationLng}}</view>
+        <view class="notice-time">报警时间: {{item.AlertTime}}</view>
       </view>
     </view>
 

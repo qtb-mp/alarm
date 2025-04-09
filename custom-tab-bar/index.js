@@ -1,3 +1,5 @@
+import { alarmAction } from '../services/alarm';
+
 Component({
   data: {
     active: 'index',
@@ -18,15 +20,18 @@ Component({
           url: routeMap[value]
         });
       }else{
-        console.log(1111111111)
-        this.setData({showDialog: true})
+        wx.showModal({
+          title: '提示',
+          content: '您要一键报警吗？',
+          success: (res)=>{
+            if (res.confirm) {
+              alarmAction();
+            } else if (res.cancel) {
+              console.log('用户点击取消')
+            }
+          }
+        })
       }
     },
-    handleConfirm(){
-      this.setData({showDialog: false})
-    },
-    handleCancel(){
-      this.setData({showDialog: false})
-    }
   }
 }); 

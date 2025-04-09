@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/notice/notice",
     "pages/login/login",
-    "pages/register/register"
+    "pages/register/register",
+    "pages/alarm/alarm"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -26,5 +27,11 @@
         "text": "社区公告"
       }
     ]
-  }
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "requiredPrivateInfos": ["getLocation"]
 }

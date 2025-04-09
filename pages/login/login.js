@@ -4,8 +4,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    username: '',
-    password: ''
+    username: '13800137000',
+    password: '123456'
   },
   /**
    * 生命周期函数--监听页面加载
@@ -53,11 +53,6 @@ Page({
 
   handleLogin() {
     const { username, password } = this.data;
-    wx.switchTab({
-      url: '/pages/index/index',
-    })
-    console.log(1111111, username, password);
-    return;
     if (!username || !password) {
       wx.showToast({
         title: '请填写完整信息',
@@ -73,15 +68,16 @@ Page({
 
     // 示例登录请求
     wx.request({
-      url: 'your-api-url/login',
-      method: 'POST',
+      url: 'https://api.gamestrial.com/community_policing/login',
+      method: 'GET',
       data: {
-        username,
-        password
+        PhoneNumber:username,
+        Password:password
       },
       success: (res) => {
-        if (res.data.code === 0) {
-          wx.setStorageSync('token', res.data.token);
+        if (res.data.code === 200) {
+          const app = getApp();
+          app.globalData.userInfo = res.data.data;
           wx.switchTab({
             url: '/pages/index/index'
           });

@@ -81,5 +81,18 @@ Page({
     wx.navigateTo({
       url: '/pages/complain/complain'
     });
+  },
+
+  // 跳转公告
+  gotoNotice(){
+    wx.switchTab({
+      url: '/pages/notice/notice',
+    })
+  },
+  // 跳转我的告警
+  gotoAlarm(){
+    wx.navigateTo({
+      url: '/pages/alarm/alarm',
+    })
   }
 })

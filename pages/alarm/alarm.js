@@ -55,12 +55,14 @@ Component({
 
     // 加载公告列表
     loadNoticeList(isRefresh = false) {
-      const { pageNum, pageSize, noticeList } = this.data;
-
+      // const { pageNum, pageSize, noticeList } = this.data;
+      const app = getApp();
+      const userInfo = app.globalData.userInfo;
       wx.request({
-        url: 'https://api.gamestrial.com/community_policing/community_announcement',
+        url: 'https://api.gamestrial.com/community_policing/my_call_the_police_records',
         method: 'GET',
         data: {
+          OfficerID:userInfo?.OfficerID,
           // pageNum,
           // pageSize
         },
@@ -71,7 +73,7 @@ Component({
             this.setData({
               noticeList: newList.map(item => ({
                 ...item,
-                CreateTime: formatTime(item.CreateTime)
+                AlertTime: formatTime(item.AlertTime)
               })),
               // hasMore: newList.length === pageSize,
               // pageNum: isRefresh ? 2 : pageNum + 1

@@ -1,9 +1,7 @@
 Page({
   data: {
-    name: '',
-    username: '',
-    password: '',
-    confirmPassword: ''
+    Name: '',
+    PhoneNumber: ''
   },
 
   onNameChange(e) {
@@ -18,34 +16,13 @@ Page({
     });
   },
 
-  onPasswordChange(e) {
-    this.setData({
-      password: e.detail.value
-    });
-  },
-
-  onConfirmPasswordChange(e) {
-    this.setData({
-      confirmPassword: e.detail.value
-    });
-  },
-
   handleRegister() {
-    const { name, username, password, confirmPassword } = this.data;
+    const { name, username } = this.data;
     
     // 表单验证
-    if (!name || !username || !password || !confirmPassword) {
+    if (!name || !username) {
       wx.showToast({
         title: '请填写完整信息',
-        icon: 'none'
-      });
-      return;
-    }
-
-    // 密码一致性校验
-    if (password !== confirmPassword) {
-      wx.showToast({
-        title: '两次输入的密码不一致',
         icon: 'none'
       });
       return;
@@ -58,15 +35,14 @@ Page({
 
     // 发起注册请求
     wx.request({
-      url: 'your-api-url/register',
+      url: 'https://api.gamestrial.com/community_policing/register',
       method: 'POST',
       data: {
-        name,
-        username,
-        password
+        Name:name,
+        PhoneNumber:username,
       },
       success: (res) => {
-        if (res.data.code === 0) {
+        if (res.data.code === 200) {
           wx.showToast({
             title: '注册成功',
             icon: 'success',
