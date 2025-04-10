@@ -1,5 +1,6 @@
 // index.js
 const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
+import { alarmAction } from '../../services/alarm';
 
 Page({
   data: {
@@ -88,6 +89,21 @@ Page({
   gotoPage(e){
     wx.navigateTo({
       url: e.mark.url,
+    })
+  },
+
+  // 一键报警
+  handleAlarm(){
+    wx.showModal({
+      title: '提示',
+      content: '您要一键报警吗？',
+      success: (res)=>{
+        if (res.confirm) {
+          alarmAction();
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
     })
   }
 })

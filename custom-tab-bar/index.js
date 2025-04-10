@@ -1,5 +1,3 @@
-import { alarmAction } from '../services/alarm';
-
 Component({
   data: {
     active: 'index',
@@ -12,26 +10,13 @@ Component({
       
       const routeMap = {
         index: '/pages/index/index',
-        notice: '/pages/notice/notice'
+        notice: '/pages/notice/notice',
+        alarm: '/pages/alarm/alarm'
       };
       
-      if(value !== 'alarm'){
-        wx.switchTab({
-          url: routeMap[value]
-        });
-      }else{
-        wx.showModal({
-          title: '提示',
-          content: '您要一键报警吗？',
-          success: (res)=>{
-            if (res.confirm) {
-              alarmAction();
-            } else if (res.cancel) {
-              console.log('用户点击取消')
-            }
-          }
-        })
-      }
+      wx.switchTab({
+        url: routeMap[value]
+      });
     },
   }
 }); 

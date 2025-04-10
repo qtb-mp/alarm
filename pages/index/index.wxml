@@ -15,8 +15,8 @@
       <t-icon name="usergroup" slot="image" size="48rpx" color="#19b2b2" />
       <view>警务平台</view>
     </view>
-    <view class="grid-item" bind:tap="gotoPage" mark:url="/pages/alarm/alarm">
-      <t-icon name="notification-error" slot="image" size="48rpx" color="#19b2b2" />
+    <view class="grid-item" bind:tap="handleAlarm">
+      <t-icon name="error" slot="image" size="48rpx" color="#19b2b2" />
       <view>一键报警</view>
     </view>
     <view class="grid-item" bind:tap="gotoPage" mark:url="/pages/my-complain/my-complain">
@@ -29,7 +29,6 @@
   <view class="process-container">
     <t-steps current="{{0}}" layout="horizontal">
       <t-step-item title="填写建议" />
-      <t-step-item title="选择标签" />
       <t-step-item title="警务查看" />
       <t-step-item title="帮您处理" />
     </t-steps>
