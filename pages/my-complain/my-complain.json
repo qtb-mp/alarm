@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "我的投诉与建议",
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#f6f6f6",
+  "usingComponents": {
+    "t-empty": "tdesign-miniprogram/empty/empty",
+    "t-loading": "tdesign-miniprogram/loading/loading",
+    "t-tag": "tdesign-miniprogram/tag/tag"
+  }
+}

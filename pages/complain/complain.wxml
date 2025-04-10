@@ -1,2 +1,51 @@
-<!--pages/complain/complain.wxml-->
-<text>pages/complain/complain.wxml</text>
+<view class="container">
+  <view class="form-title">反馈表单</view>
+  
+  <view class="form-container">
+    <!-- 分类选择 -->
+    <view class="form-section">
+      <view class="form-label">分类:</view>
+      <t-radio-group value="{{formData.Type}}" bind:change="onTypeChange">
+        <t-radio block="{{false}}" value="complaint" label="投诉" />
+        <t-radio block="{{false}}" value="suggestion" label="建议" />
+      </t-radio-group>
+    </view>
+    
+    <!-- 联系方式 -->
+    <view class="form-section">
+      <view class="form-label">联系方式:</view>
+      <t-input
+        placeholder="请输入联系方式"
+        value="{{formData.ContactInfo}}"
+        bind:change="onContactInfoChange"
+      />
+    </view>
+    
+    <!-- 内容 -->
+    <view class="form-section">
+      <view class="form-label">内容:</view>
+      <t-textarea
+        placeholder="请输入详细内容"
+        value="{{formData.Content}}"
+        maxlength="500"
+        disableDefaultPadding="{{true}}"
+        indicator
+        autosize
+        bind:change="onContentChange"
+      />
+    </view>
+    
+    <!-- 提交按钮 -->
+    <view class="form-button-container">
+      <t-button 
+        theme="primary" 
+        size="large" 
+        block 
+        bind:tap="submitForm"
+        loading="{{submitting}}"
+      >
+        提交
+      </t-button>
+    </view>
+  </view>
+</view>

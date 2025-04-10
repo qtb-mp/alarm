@@ -76,23 +76,18 @@ Page({
     });
   },
 
-  onComplaint() {
-    // 投诉建议
-    wx.navigateTo({
-      url: '/pages/complain/complain'
-    });
-  },
-
   // 跳转公告
-  gotoNotice(){
-    wx.switchTab({
-      url: '/pages/notice/notice',
+  gotoDispose(){
+    const userInfo = getApp().globalData.userInfo;
+    if(userInfo.Permission === 'user') return;
+    wx.navigateTo({
+      url: '/pages/dispose/dispose',
     })
   },
-  // 跳转我的告警
-  gotoAlarm(){
+  // 跳转页面
+  gotoPage(e){
     wx.navigateTo({
-      url: '/pages/alarm/alarm',
+      url: e.mark.url,
     })
   }
 })

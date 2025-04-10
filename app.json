@@ -4,7 +4,10 @@
     "pages/notice/notice",
     "pages/login/login",
     "pages/register/register",
-    "pages/alarm/alarm"
+    "pages/alarm/alarm",
+    "pages/complain/complain",
+    "pages/my-complain/my-complain",
+    "pages/dispose/dispose"
   ],
   "window": {
     "backgroundTextStyle": "light",

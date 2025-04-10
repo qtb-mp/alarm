@@ -32,7 +32,7 @@
   <!-- 空状态 -->
   <t-empty 
     wx:else 
-    description="暂无公告" 
+    description="暂无记录" 
     icon="info-circle-filled" 
   />
 </view>

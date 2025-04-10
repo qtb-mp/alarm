@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "投诉处理",
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#f6f6f6",
+  "usingComponents": {
+    "t-empty": "tdesign-miniprogram/empty/empty",
+    "t-loading": "tdesign-miniprogram/loading/loading",
+    "t-tag": "tdesign-miniprogram/tag/tag",
+    "t-dialog": "tdesign-miniprogram/dialog/dialog",
+    "t-textarea": "tdesign-miniprogram/textarea/textarea"
+  }
+}

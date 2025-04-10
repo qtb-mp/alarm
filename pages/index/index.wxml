@@ -7,19 +7,19 @@
 
   <!-- 四个功能按钮区域 -->
   <view class="grid-container">
-    <view class="grid-item">
+    <view class="grid-item" bind:tap="gotoPage" mark:url="/pages/complain/complain">
       <t-icon name="chat-bubble" slot="image" size="48rpx" color="#19b2b2" />
       <view>我要投诉</view>
     </view>
-    <view class="grid-item" bind:tap="gotoNotice">
+    <view class="grid-item" bind:tap="gotoDispose">
       <t-icon name="usergroup" slot="image" size="48rpx" color="#19b2b2" />
       <view>警务平台</view>
     </view>
-    <view class="grid-item" bind:tap="gotoAlarm">
+    <view class="grid-item" bind:tap="gotoPage" mark:url="/pages/alarm/alarm">
       <t-icon name="notification-error" slot="image" size="48rpx" color="#19b2b2" />
       <view>一键报警</view>
     </view>
-    <view class="grid-item">
+    <view class="grid-item" bind:tap="gotoPage" mark:url="/pages/my-complain/my-complain">
       <t-icon name="task" slot="image" size="48rpx" color="#19b2b2" />
       <view>我的投诉</view>
     </view>
@@ -37,7 +37,7 @@
 
   <!-- 底部投诉建议按钮 -->
   <view class="bottom-button">
-    <t-button theme="primary" block size="large" bind:tap="onComplaint">
+    <t-button theme="primary" block size="large" bind:tap="gotoPage" mark:url="/pages/complain/complain">
       投诉建议
     </t-button>
   </view>
