@@ -46,3 +46,9 @@
   min-width: 150rpx !important;
   text-align: right;
 }
+
+.password-tip {
+  font-size: 24rpx;
+  color: #999;
+  padding: 16rpx 32rpx;
+}

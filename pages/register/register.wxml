@@ -18,6 +18,7 @@
         value="{{username}}"
         bind:change="onUsernameChange"
       />
+      <view class="password-tip">密码默认为账号后六位</view>
     </t-cell-group>
 
     <view class="button-group">
