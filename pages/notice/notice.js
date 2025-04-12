@@ -13,10 +13,7 @@ Component({
    */
   data: {
     noticeList: [],
-    pageNum: 1,
-    pageSize: 10,
-    hasMore: false,
-    isRefreshing: false
+    loading: false
   },
 
   /**
@@ -29,70 +26,66 @@ Component({
           active: 'notice'
         });
       }
+      this.loadNoticeList();
     },
 
     onLoad() {
       this.loadNoticeList();
     },
 
-    // 下拉刷新
-    // onPullDownRefresh() {
-    //   this.setData({
-    //     isRefreshing: true,
-    //     pageNum: 1,
-    //     hasMore: true
-    //   }, () => {
-    //     this.loadNoticeList(true);
-    //   });
-    // },
-
-    // 上拉加载更多
-    // onReachBottom() {
-    //   if (this.data.hasMore) {
-    //     this.loadNoticeList();
-    //   }
-    // },
+    // 添加下拉刷新处理函数
+    onPullDownRefresh() {
+      // 重新加载数据
+      this.loadNoticeList(true);
+    },
 
     // 加载公告列表
-    loadNoticeList(isRefresh = false) {
-      const { pageNum, pageSize, noticeList } = this.data;
-
+    loadNoticeList(isPullDownRefresh = false) {
+      if (this.data.loading) return;
+      this.setData({ loading: true });
       wx.request({
         url: 'https://api.gamestrial.com/community_policing/community_announcement',
         method: 'GET',
-        data: {
-          // pageNum,
-          // pageSize
-        },
         success: (res) => {
           if (res.data.code === 200) {
             const newList = res.data.records || [];
             
+            // 格式化时间
+            const formattedList = newList.map(item => ({
+              ...item,
+              CreateTime: formatTime(item.CreateTime)
+            }));
+            
             this.setData({
-              noticeList: newList.map(item => ({
-                ...item,
-                CreateTime: formatTime(item.CreateTime)
-              })),
-              // hasMore: newList.length === pageSize,
-              // pageNum: isRefresh ? 2 : pageNum + 1
+              noticeList: formattedList,
+            });
+          } else {
+            wx.showToast({
+              title: res.data.message || '加载失败',
+              icon: 'none'
             });
           }
         },
+        fail: () => {
+          wx.showToast({
+            title: '网络错误，请重试',
+            icon: 'none'
+          });
+        },
         complete: () => {
-          if (isRefresh) {
-            this.setData({ isRefreshing: false });
-            // wx.stopPullDownRefresh();
+          this.setData({ loading: false });
+          // 如果是下拉刷新，停止下拉刷新动画
+          if (isPullDownRefresh) {
+            wx.stopPullDownRefresh();
           }
         }
       });
     },
 
-    // 点击公告项
-    // onNoticeClick(e) {
-    //   const notice = e.currentTarget.dataset.notice;
-    //   wx.navigateTo({
-    //     url: `/pages/notice/detail/detail?id=${notice.id}`
-    //   });
-    // },
+    onPublishClick() {
+      wx.navigateTo({
+        url: '/pages/publish/publish'
+      });
+    }
   }
 })

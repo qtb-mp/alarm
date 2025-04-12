@@ -1,0 +1,23 @@
+<!--pages/publish/publish.wxml-->
+<view class="container">
+  <view class="form-container">
+    <!-- 标题输入框 -->
+    <view class="content-section">
+      <view class="content-label">标题</view>
+      <t-input placeholder="请输入公告标题" value="{{formData.Title}}" bind:change="onTitleChange" />
+    </view>
+
+    <!-- 内容文本域 -->
+    <view class="content-section">
+      <view class="content-label">内容</view>
+      <t-textarea placeholder="请输入公告内容" value="{{formData.Content}}" maxlength="500" indicator disableDefaultPadding="{{true}}" autosize bind:change="onContentChange" />
+    </view>
+
+    <!-- 提交按钮 -->
+    <view class="button-container">
+      <t-button theme="primary" block size="large" loading="{{submitting}}" bind:tap="handleSubmit">
+        发布
+      </t-button>
+    </view>
+  </view>
+</view>

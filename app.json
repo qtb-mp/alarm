@@ -7,7 +7,8 @@
     "pages/alarm/alarm",
     "pages/complain/complain",
     "pages/my-complain/my-complain",
-    "pages/dispose/dispose"
+    "pages/dispose/dispose",
+    "pages/publish/publish"
   ],
   "window": {
     "backgroundTextStyle": "light",

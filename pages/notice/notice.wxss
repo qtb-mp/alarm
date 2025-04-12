@@ -52,3 +52,31 @@
   text-align: center;
   padding: 24rpx 0;
 }
+
+.bottom-safe-area {
+  height: 120rpx; /* 与按钮区域高度一致，防止内容被遮挡 */
+}
+
+.floating-button {
+  position: fixed;
+  bottom: 100rpx;
+  left: 0;
+  right: 0;
+  padding: 24rpx 32rpx;
+  background-color: #fff;
+  box-shadow: 0 -2rpx 8rpx rgba(0, 0, 0, 0.1);
+  z-index: 99;
+}
+
+/* 如果有底部安全区域（iPhone X 等机型），增加底部内边距 */
+@supports (padding-bottom: constant(safe-area-inset-bottom)) {
+  .floating-button {
+    padding-bottom: calc(24rpx + constant(safe-area-inset-bottom));
+  }
+}
+
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .floating-button {
+    padding-bottom: calc(24rpx + env(safe-area-inset-bottom));
+  }
+}

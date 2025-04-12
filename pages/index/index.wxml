@@ -36,8 +36,8 @@
 
   <!-- 底部投诉建议按钮 -->
   <view class="bottom-button">
-    <t-button theme="primary" block size="large" bind:tap="gotoPage" mark:url="/pages/complain/complain">
-      投诉建议
+    <t-button theme="primary" block size="large" bind:tap="logout">
+      退出登录
     </t-button>
   </view>
 </view>
