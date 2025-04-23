@@ -1,5 +1,5 @@
 <view class="container">
-  <view class="form-title">反馈表单</view>
+  <view class="form-title">投诉建议</view>
   
   <view class="form-container">
     <!-- 分类选择 -->

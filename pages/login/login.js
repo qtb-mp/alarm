@@ -66,7 +66,7 @@ Page({
       title: '登录中...',
     });
 
-    // 示例登录请求
+    // 登录请求
     wx.request({
       url: 'https://api.gamestrial.com/community_policing/login',
       method: 'GET',

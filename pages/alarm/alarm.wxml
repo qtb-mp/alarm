@@ -7,7 +7,7 @@
     wx:if="{{isRefreshing}}"
   />
 
-  <!-- 公告列表 -->
+  <!-- 报警列表 -->
   <block wx:if="{{noticeList.length > 0}}">
     <view class="notice-list">
       <view 

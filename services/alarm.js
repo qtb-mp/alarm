@@ -2,6 +2,17 @@
 export const alarmAction = () => {
   const app = getApp();
   const userInfo = app.globalData.userInfo;
+  if(!userInfo?.OfficerID){
+    wx.showToast({
+      title: '请先登录',
+    });
+    setTimeout(()=>{
+      wx.navigateTo({
+        url: '/pages/login/login',
+      })
+    }, 1500)
+    return;
+  }
   wx.getLocation({
     type: 'wgs84',
     success (res) {
